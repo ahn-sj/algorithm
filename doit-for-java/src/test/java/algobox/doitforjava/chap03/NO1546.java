@@ -1,29 +1,38 @@
 package algobox.doitforjava.chap03;
 
-import java.util.Scanner;
+import java.io.*;
 
+/**
+ * 1. 자기 점수 중 최댓값을 고른다
+ * 2. 최대값을 M이라고 할 때 모든 점수에 점수/M*100으로 고친다.
+ * 3. 이 방법으로 계싼했을 떄 새로운 평균을 구하시오
+ */
 public class NO1546 {
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        int subject = scan.nextInt();
-        float[] grades = new float[subject];
+        int subject = Integer.parseInt(br.readLine());
+        String[] subjects = br.readLine().split(" ");
 
-        float max = 0;
-        float sum = 0;
-
-        for (int i = 0; i < grades.length; i++) {
-            float grade = scan.nextFloat();
-            if(grade > max) {
-                max = grade;
-            }
-            grades[i] = grade;
+        // 1.
+        double max = 0;
+        for (String value : subjects) {
+            int grade = Integer.parseInt(value);
+            if(grade > max) max = grade;
         }
 
-        for (int i = 0; i < grades.length; i++) {
-            grades[i] = grades[i] / max * 100;
-            sum += grades[i];
+        // 2.
+        double sum = 0;
+        for (String value : subjects) {
+            double grade = Double.parseDouble(value);
+            sum += grade / max * 100.0;
         }
-        System.out.println(sum / subject);
+
+        // 3.
+        bw.write((sum / subject) + "");
+
+        bw.close();
+        br.close();
     }
 }

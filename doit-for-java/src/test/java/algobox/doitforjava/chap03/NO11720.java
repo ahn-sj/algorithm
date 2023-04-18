@@ -18,12 +18,9 @@ public class NO11720 {
     public Long solution(String max, String given) {
         long answer = 0;
 
-        String[] split = given.split("");
-
-        for (String s : split) {
+        for (String s : given.split("")) {
             answer += Long.valueOf(s);
         }
-
         return answer;
     }
 }
