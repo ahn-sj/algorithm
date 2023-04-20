@@ -45,7 +45,7 @@ public class NO11660 {
             int x2 = Integer.parseInt(range[2]);
             int y2 = Integer.parseInt(range[3]);
 
-            bw.write(result[x2][y2] - result[x1 - 1][y2] - result[x2][y1 - 1] + result[x1 - 1][y1 - 1] + "\n");
+            bw.write(result[x2][y2] + result[x1 - 1][y1 - 1] - result[x1 - 1][y2] - result[x2][y1 - 1] + "\n");
         }
         bw.flush();
 
