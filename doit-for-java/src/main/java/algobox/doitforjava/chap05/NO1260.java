@@ -9,20 +9,16 @@ public class NO1260 {
     
     static boolean[] checked;
     static int node;
-    static List<int[]> list;
+    static List<int[]> list = new ArrayList<>();
     static StringBuilder sb = new StringBuilder();
     
     public static void main(String[] args) throws IOException {
-        list = new ArrayList<>();
-
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String[] input = br.readLine().split(" ");
 
         node = Integer.parseInt(input[0]);
         int edge = Integer.parseInt(input[1]);
         int start = Integer.parseInt(input[2]);
-
-        System.out.println("3".toUpperCase());
 
         checked = new boolean[node + 1];
 
